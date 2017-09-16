@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Devel" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_gcc_64_compiler" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Devel" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_64_compiler" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Devel" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_64_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="$(#sdl2.include)" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="SDL2main" />
+			<Add library="SDL2.dll" />
+			<Add library="glew32" />
+			<Add library="glew32s" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add directory="$(#sdl2.lib)" />
+		</Linker>
+		<Unit filename="Notes-Model File.txt" />
+		<Unit filename="Notes-Structures.txt" />
+		<Unit filename="bin/Debug/SDL2.dll" />
+		<Unit filename="bin/Debug/glew32.dll" />
+		<Unit filename="bin/Release/SDL2.dll" />
+		<Unit filename="bin/Release/glew32.dll" />
+		<Unit filename="cb.bmp" />
+		<Unit filename="glm/glm.hpp" />
+		<Unit filename="koderkit/bitwise.h" />
+		<Unit filename="koderkit/maths/bitwise.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="koderkit/maths/bitwise.h" />
+		<Unit filename="koderkit/maths/color.hpp" />
+		<Unit filename="koderkit/maths/fastmath.cpp" />
+		<Unit filename="koderkit/maths/fastmath.hpp" />
+		<Unit filename="koderkit/maths/matrix.hpp" />
+		<Unit filename="koderkit/maths/matrix3x3.cpp" />
+		<Unit filename="koderkit/maths/matrix4x4.cpp" />
+		<Unit filename="koderkit/maths/perlin.cpp" />
+		<Unit filename="koderkit/maths/perlin.hpp" />
+		<Unit filename="koderkit/maths/vertex.hpp" />
+		<Unit filename="koderkit/maths/vertex2d.cpp" />
+		<Unit filename="koderkit/maths/vertex3d.cpp" />
+		<Unit filename="koderkit/maths/vertex4d.cpp" />
+		<Unit filename="koderkit/objects/camera.cpp" />
+		<Unit filename="koderkit/objects/camera.hpp" />
+		<Unit filename="koderkit/objects/object.cpp" />
+		<Unit filename="koderkit/objects/object.hpp" />
+		<Unit filename="koderkit/objects/object_3d.cpp" />
+		<Unit filename="koderkit/objects/object_3d.hpp" />
+		<Unit filename="koderkit/objects/object_3d_gl.cpp" />
+		<Unit filename="koderkit/objects/object_3d_gl.hpp" />
+		<Unit filename="koderkit/types.h" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,80 @@
+
+        **Material**
+Members:
+    Shine
+    Diffuse Texture
+    Paint Texture
+    Normal Texture
+    Type
+
+
+        **Map**
+Members:
+    Vertex
+        xyv/color/uv/normal/mat-index/light-level/color-filter
+    Materials (up to 30)
+    Time Value
+    Projection Matrix
+
+
+        **Entities**
+Memebers:
+    Vertex
+        xyz/color/uv/normal/mat-index
+    Materials (up to 4)
+    Color
+    Color Filter
+    Transform Matrix
+    Parent Object
+    Flags
+
+
+        **Models**
+Members:
+    Vertex
+        xyz/uv/normal/mat-index/bone-index
+    Materials (up to 4)
+    Light Level
+    Color
+    Color Filter
+    Skeleton
+    Pose Data
+    Transform Matrix
+    Parent Object
+    Flags
+
+
+        **Camera Objects**
+Members:
+    Transform Matrix
+    View Matrix
+    Normal Matrix
+    Color Filter
+    Parent Object
+
+
+        **Rules**
+If paint texture is supplied then that is effected by color only, otherwise full diffuse is multiplied by color.
+Color filters are used for highlighting things, all diffuse and speculate output is multiplied by this.
+
+        **Render Pattern**
+1. Solid geometry: diffuse, depth, normal, shine+filter
+2. Transparency layer modified by geometry depth: transdiffuse, transdepth, transnormals, transshine+filter
+4. Geometry specular overlay using normal and shine+filter drawn over geometry diffuse: diffuse
+5. Transparency specular using transnormal and transshine drawn over transdiffuse: transdiffuse
+7. Final render using all diffuse and depth buffers rendering particles based on them: screen
+
+Buffer Types:
+    diffuse = RGB
+    transdiffuse = RGBA
+    shine+filter = RGBA (shine is the alpha)
+
+Stats
+    Shader count: 10
+    Transparency: Not perfect, but fast. No sorting.
+
+
+        **Collision**
+Octree:
+    Each block has 4x4x4 small blocks if not solid or empty.
+    Use bit checking.

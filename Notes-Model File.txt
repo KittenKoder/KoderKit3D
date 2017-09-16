@@ -1,0 +1,87 @@
+
+		*** Model Format ***
+Extension: k3d
+Limitations:
+	4 materials per model
+Byte List:
+	0-4		KIT3D
+	5 		Contents Flag
+	6+ Data
+
+Contents Flag:
+	1	Vertex Data
+	2	Normal Data
+	3	Texture Map Data
+	4	Color Data
+	5	Skeletal Bone Data
+	6	Material Data
+	7	Skeleton Data
+	8	Animation Data
+
+Format: Vertex Data
+	0		Number of Vertexes
+	Per Vertex: Depends on data included, order of data
+		XYZ
+			4 bytes each XYZ
+		Normal
+			4 bytes each XYZ
+		Texture
+			4 bytes each UV
+		Color
+			4 bytes each RGB
+		Skeletal Bone
+			1 byte bone index
+		Material
+            1 byte material index
+
+Format: Skeleton Data
+	0 Number of bones
+	Per Bone:
+		Pivot
+			4 bytes each XYZ
+
+Format: Animation Data
+	0 Number of animations
+	Per Animation:
+		Name
+			cstr
+		Number of keyframes
+			1 byte
+		Per Keyframe:
+			Time Offset
+				4 bytes (0.0 to 1.0)
+			Per Bone
+				Rotation Quaternion
+					4 Bytes Each XYZW
+				Translation
+					4 Bytes Each XYZ
+
+Format: Material Data (only if Material Data flag is set)
+	0 Number of Materials
+	Per Material:
+		Shine
+			4 Bytes
+		Color
+			4 Bytes Each RGB
+		Specular
+			4 Bytes Each RGB
+
+		*** Shaders ***
+	Vertex:
+uniform mat4 matWorld
+uniform mat4 matView
+uniform mat4 matModel
+uniform mat3 matNormal
+
+in vec3 vecVertex
+in vec4 vecColor
+in vec3 vecNormal
+in vec2 vecUV
+in float datBone (cast to int)
+in float datMaterial (cast to int)
+
+	Fragment:
+uniform sampler2D uniTextures[4]
+uniform float datShine[4]
+uniform vec4 vecDiffuse[4]
+uniform vec4 vecSpecular[4]
