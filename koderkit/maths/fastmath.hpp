@@ -1,17 +1,18 @@
 #ifndef FASTMATH_H
 #define FASTMATH_H
 
+#include <GL/glew.h>
 #include <GL/gl.h>
 #include "../types.h"
 
 namespace fastmath {
     /**
-     * \brief Inverse square root.
+     * Inverse square root.
      * A very fast and decently accurate inverse square root function.
      */
 	GLfloat invsqrt(GLfloat);
 	/**
-     * \brief Square root.
+     * Square root.
      * A very fast and decently accurate square root function.
      */
 	GLfloat sqrtf(GLfloat);

@@ -393,26 +393,26 @@ void Vertex3D::normalize()
 	if(l > 0.0000001f) *this /= l;
 };
 
-GLfloat Vertex3D::cosAngle(Vertex3D v1, Vertex3D v2)
+GLfloat Vertex3D::cosAngle(Vertex3D v)
 {
-	GLfloat l1 = v1.length();
-	GLfloat l2 = v2.length();
+	GLfloat l1 = this->length();
+	GLfloat l2 = v.length();
 
 	if(l1 < 0.0000001f) l1 = 1.0f;
 	if(l2 < 0.0000001f) l2 = 1.0f;
 
-	return ((v1 * v2) / (l1 * l2));
+	return (((*this) * v) / (l1 * l2));
 };
 
-GLfloat Vertex3D::cosAngle(Vertex3D *v1, Vertex3D *v2)
+GLfloat Vertex3D::cosAngle(Vertex3D *v)
 {
-	GLfloat l1 = v1->length();
-	GLfloat l2 = v2->length();
+	GLfloat l1 = this->length();
+	GLfloat l2 = v->length();
 
 	if(l1 < 0.0000001f) l1 = 1.0f;
 	if(l2 < 0.0000001f) l2 = 1.0f;
 
-	return (((*v1) * v2) / (l1 * l2));
+	return (((*this) * v) / (l1 * l2));
 };
 
 void Vertex3D::toNormal(Vertex3D v[], bool cw)

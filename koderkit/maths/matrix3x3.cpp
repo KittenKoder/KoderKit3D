@@ -1,5 +1,6 @@
 #include "matrix.hpp"
 #include <math.h>
+#include <cstring>
 #include "fastmath.hpp"
 
 using namespace kk3d::math;

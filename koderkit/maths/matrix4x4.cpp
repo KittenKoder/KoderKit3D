@@ -1,6 +1,8 @@
 #include "matrix.hpp"
+#include <GL/glew.h>
 #include <GL/gl.h>
 #include <math.h>
+#include <cstring>
 #include "fastmath.hpp"
 
 using namespace kk3d::math;
